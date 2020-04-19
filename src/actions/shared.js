@@ -1,8 +1,8 @@
 import { getInitialData } from '../utils/api'
-import { receiveUsers } from '../actions/users'
-import { receiveQuestions } from '../actions/questions'
 import { setAuthedUser} from '../actions/authedUser'
-
+import { addUserQuestion, saveUserAnswer,receiveUsers } from '../actions/users'
+import { addQuestion, receiveQuestions, saveQuestionAnswer } from '../actions/questions'
+import { _saveQuestionAnswer, _saveQuestion } from '../utils/_DATA'
 const AUTHED_ID = 'tylermcginnis'
 
 export function handleInitialData() {
@@ -18,3 +18,38 @@ export function handleInitialData() {
         })
     }
 } 
+
+
+
+
+export function handleAddQuestion (optionOneText, optionTwoText){
+    return (dispatch, getState) => {
+        const { authedUser } = getState();
+        return _saveQuestion({
+            optionOneText,
+            optionTwoText,
+            author: authedUser
+        })
+        .then((question) => {
+            dispatch(addQuestion(question));
+            dispatch(addUserQuestion(authedUser, question.id))
+        })
+
+    }
+}
+
+export function handleAnswer (qid, option) {
+    return (dispatch, getState) => {
+      const { authedUser } = getState();
+      const info = {
+        authedUser: authedUser,
+        qid,
+        answer: option
+      };
+      _saveQuestionAnswer(info)
+          .then(() => {
+              dispatch(saveQuestionAnswer(authedUser, qid, option));
+              dispatch(saveUserAnswer(authedUser, qid, option))
+          })
+    }
+}
