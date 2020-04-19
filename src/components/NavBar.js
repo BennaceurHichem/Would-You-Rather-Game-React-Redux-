@@ -2,10 +2,10 @@ import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } f
 import { Link , withRouter} from "react-router-dom";
 
 import {connect} from "react-redux";
-import React, { PureComponent, Fragment } from "react";
+import React, { Component, Fragment } from "react";
 import User from "./User";
 
-class NavBar extends PureComponent {
+class NavBar extends Component {
   state = {
     isOpen: false
   };
