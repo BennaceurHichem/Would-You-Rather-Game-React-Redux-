@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import {Button, Card, CardBody, CardHeader} from 'reactstrap';
 import CardTitle from "reactstrap/es/CardTitle";
 import './not_found.css'
-
+import {withRouter} from 'react-router'
 
 const NotFound = ({ history }) => (
   
@@ -13,7 +13,11 @@ const NotFound = ({ history }) => (
     <div id="title">Simple Pure CSS3 &bull; 404 Error Page</div>
     <div className="circles">
       <p>404<br></br>
-      <Button className="button" color="primary" onclick={()=>history.push('/')}> Return to Home</Button>
+      <div className="text-center">
+
+      <Button  color="primary" onClick={()=>history.push('/')}> Return to Home</Button>
+
+      </div>
        <small>PAGE NOT FOUND</small>
       </p>
      
@@ -30,5 +34,5 @@ const NotFound = ({ history }) => (
 );
 
 
-export default NotFound;
+export default withRouter(NotFound);
 

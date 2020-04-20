@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Form, FormGroup, Label, Input, Row, Col } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Row, Col,Button } from 'reactstrap';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { setAuthedUser } from '../actions/authedUser'
@@ -52,7 +52,10 @@ class Login extends PureComponent {
                 }
               </Input>
             </FormGroup>
-            <input disabled={userId === ''} type="submit" value="Submit" />
+         
+            <div className="text-center">
+                  <button className="button button--neumorphic" type="submit" value="Submit"  disabled={userId === ''}>Submit</button>
+                  </div>
           </Form>
         </Col>
       </Row>

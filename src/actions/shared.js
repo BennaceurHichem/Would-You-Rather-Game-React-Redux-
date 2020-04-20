@@ -3,7 +3,7 @@ import { setAuthedUser} from '../actions/authedUser'
 import { addUserQuestion, saveUserAnswer,receiveUsers } from '../actions/users'
 import { addQuestion, receiveQuestions, saveQuestionAnswer } from '../actions/questions'
 import { _saveQuestionAnswer, _saveQuestion } from '../utils/_DATA'
-const AUTHED_ID = 'tylermcginnis'
+
 
 export function handleInitialData() {
     return (dispatch) => {
@@ -14,7 +14,7 @@ export function handleInitialData() {
                 
                 dispatch(receiveUsers(users))
                 dispatch(receiveQuestions(questions))
-                dispatch(setAuthedUser(AUTHED_ID))
+                
         })
     }
 } 

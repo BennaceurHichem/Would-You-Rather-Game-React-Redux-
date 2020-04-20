@@ -54,7 +54,7 @@ class NewQuestion extends Component {
               <Col sm="12" md={{ size: 6, offset: 3 }}>
                 <Card>
                   <CardBody>
-                    <CardTitle>Would You Rather</CardTitle>
+                    <CardTitle className="card-title">Would You Rather..  <span role="img" aria-label="sheep">😏</span>(add your options)</CardTitle>
                     <Form onSubmit={this.handleSubmit}>
                       <FormGroup>
                         <Label for="optionOne">Option One</Label>
@@ -72,7 +72,9 @@ class NewQuestion extends Component {
                           onChange={this.handleOptionTwoChange}
                           placeholder="Option Two" />
                       </FormGroup>
-                      <Button disabled={optionOne === '' || optionTwo === ''}>Submit</Button>
+                      <div className="text-center">
+                  <button className="button button--neumorphic" disabled={optionOne === '' || optionTwo === ''}>Submit</button>
+                  </div>
                     </Form>
                   </CardBody>
                 </Card>

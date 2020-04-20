@@ -38,18 +38,22 @@ class QuestionDetails extends PureComponent {
               {answer ?
                 <div>
                   <FormGroup>
-                    <ListGroup check disabled>
-                      <Label check>
-                        <Input  type="radio" checked={answer==="optionOne"} readOnly/>{' '}
-                        {question.optionOne.text}
-                      </Label>
-                    </ListGroup>
-                    <FormGroup check disabled>
-                      <Label check>
-                        <Input type="radio" checked={answer==="optionTwo"} readOnly/>{' '}
-                        {question.optionTwo.text}
-                      </Label>
-                    </FormGroup>
+                
+                    <div className="wrapper">
+                            <input className="state" type="radio" name="app" id="1" value="1" checked={answer==="optionOne"} readOnly></input>
+                            <label className="label" for="1">
+                            <div className="indicator"></div>
+                            <span className="text">1) {question.optionOne.text}</span>
+                            </label>
+                </div>
+                     
+                        <div className="wrapper">
+                            <input className="state" type="radio" name="app" id="2" value="2" checked={answer==="optionTwo"} readOnly></input>
+                            <label className="label" for="2">
+                            <div className="indicator"></div>
+                            <span className="text">2) {question.optionTwo.text}</span>
+                            </label>
+                 </div>
                   </FormGroup>
                   <div className="progress">
                     <div className="progress-one" style={{ width: `${percOne}%` }}>{`${percOne}%`}</div>
@@ -61,20 +65,25 @@ class QuestionDetails extends PureComponent {
                 </div>:
                 <Form onSubmit={this.handleSubmit}>
                   <FormGroup tag="fieldset">
-                    <FormGroup >
-                      <Label >
-                        <Input type="radio" name="radio1" value="optionOne" onChange={this.radioSelected} />{' '}
-                        {question.optionOne.text}
-                      </Label>
-                    </FormGroup>
-                    <FormGroup >
-                      <Label >
-                        <Input type="radio" name="radio1" value="optionTwo" onChange={this.radioSelected} />{' '}
-                        {question.optionTwo.text}
-                      </Label>
-                    </FormGroup>
+                  <div className="wrapper">
+                            <input className="state" type="radio" name="radio1" id="1" value="optionOne" onChange={this.radioSelected}y></input>
+                            <label className="label" for="1">
+                            <div className="indicator"></div>
+                            <span className="text">1) {question.optionOne.text}</span>
+                            </label>
+                </div>
+                <div className="wrapper">
+                            <input className="state" type="radio" name="radio1" id="2" value="optionTwo" onChange={this.radioSelected}y></input>
+                            <label className="label" for="2">
+                            <div className="indicator"></div>
+                            <span className="text">2) {question.optionTwo.text}</span>
+                            </label>
+                </div>
+   
                   </FormGroup>
-                  <Button color="success" disabled={selectedOption === ''}>Submit</Button>
+                  <div className="text-center">
+                  <button className="button button--neumorphic" disabled={selectedOption === ''}>Submit</button>
+                  </div>
                 </Form>
               }
             </CardBody>
@@ -95,8 +104,10 @@ function mapStateToProps ({ questions, users, authedUser }, { match }) {
   const answers = users[authedUser].answers;
   let answer, percOne, percTwo, total;
   const { id } = match.params;
+
   const question = questions[id];
-  if (answers.hasOwnProperty(question.id)) {
+  console.log("question: "+Object.keys(questions))
+  if (question && answers.hasOwnProperty(question.id) ) {
     answer = answers[question.id]
   }
   const questionAuthor = users[question.author];
