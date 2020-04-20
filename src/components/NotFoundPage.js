@@ -10,16 +10,18 @@ const NotFound = ({ history }) => (
   <>   
   
   <section id="not-found">
+  <div className="text-center">
+
+<Button  className="not-found-btn" color="primary" onClick={()=>history.push('/')}> Return to Home</Button>
+
+</div>
     <div id="title">Simple Pure CSS3 &bull; 404 Error Page</div>
+   
     <div className="circles">
       <p>404<br></br>
-      <div className="text-center">
-
-      <Button  color="primary" onClick={()=>history.push('/')}> Return to Home</Button>
-
-      </div>
+     
        <small>PAGE NOT FOUND</small>
-      </p>
+       </p>
      
       <span className="circle big"></span>
       <span className="circle med"></span>

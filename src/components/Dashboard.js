@@ -14,9 +14,9 @@ class Dashboard extends Component {
       };
   
       switchTab(tab) {
-        if (this.state.activeTab !== tab) {
+        if (this.state.active !== tab) {
           this.setState({
-            activeTab: tab
+            active: tab
           });
         }
       }
@@ -40,7 +40,7 @@ class Dashboard extends Component {
               </NavItem>
               <NavItem>
                 <NavLink
-                  className={classnames({ active: this.state.activeTab === '2' })}
+                  className={classnames({ active: this.state.active === '2' })}
                   onClick={() => { this.switchTab('2'); }}
                 >
                   Answered
@@ -48,7 +48,7 @@ class Dashboard extends Component {
               </NavItem>
             </Nav>
     
-            <TabContent activeTab={this.state.activeTab}>
+            <TabContent activeTab={this.state.active}>
               <TabPane tabId="1">
                 <Row>
                   {unansweredQuestions.map(qid =>

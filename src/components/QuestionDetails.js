@@ -41,7 +41,7 @@ class QuestionDetails extends PureComponent {
                 
                     <div className="wrapper">
                             <input className="state" type="radio" name="app" id="1" value="1" checked={answer==="optionOne"} readOnly></input>
-                            <label className="label" for="1">
+                            <label className="label" htmlFor="1">
                             <div className="indicator"></div>
                             <span className="text">1) {question.optionOne.text}</span>
                             </label>
@@ -49,7 +49,7 @@ class QuestionDetails extends PureComponent {
                      
                         <div className="wrapper">
                             <input className="state" type="radio" name="app" id="2" value="2" checked={answer==="optionTwo"} readOnly></input>
-                            <label className="label" for="2">
+                            <label className="label" htmlFor="2">
                             <div className="indicator"></div>
                             <span className="text">2) {question.optionTwo.text}</span>
                             </label>
@@ -66,15 +66,15 @@ class QuestionDetails extends PureComponent {
                 <Form onSubmit={this.handleSubmit}>
                   <FormGroup tag="fieldset">
                   <div className="wrapper">
-                            <input className="state" type="radio" name="radio1" id="1" value="optionOne" onChange={this.radioSelected}y></input>
-                            <label className="label" for="1">
+                            <input className="state" type="radio" name="radio1" id="1" value="optionOne" onChange={this.radioSelected}></input>
+                            <label className="label" htmlFor="1">
                             <div className="indicator"></div>
                             <span className="text">1) {question.optionOne.text}</span>
                             </label>
                 </div>
                 <div className="wrapper">
-                            <input className="state" type="radio" name="radio1" id="2" value="optionTwo" onChange={this.radioSelected}y></input>
-                            <label className="label" for="2">
+                            <input className="state" type="radio" name="radio1" id="2" value="optionTwo" onChange={this.radioSelected}></input>
+                            <label className="label" htmlFor="2">
                             <div className="indicator"></div>
                             <span className="text">2) {question.optionTwo.text}</span>
                             </label>
