@@ -90,7 +90,7 @@ function mapStateToProps ({ questions, users, authedUser }) {
   }
 
 
-  DashBoard.propTypes = {
+  Dashboard.propTypes = {
     answeredPolls : PropTypes.array,
     unansweredPolls : PropTypes.array
   };
