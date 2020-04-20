@@ -1,3 +1,6 @@
+
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -43,13 +46,13 @@ div.card {
 
 .progress-one {
   height: 100%;
-  background: #808CFA;
+  background: red;
   text-align: center;
 }
 
 .progress-two {
   height: 100%;
-  background: #FA8080;
+  background: green;
   text-align: center;
 }
 
@@ -62,5 +65,30 @@ div.card {
 
 .optionSelected {
   font-weight: bold;
-  color: blueviolet;
+  color: green;
 }
+
+
+.question-card{
+
+  margin-top:50px;
+  margin-button:50px;
+  
+
+}
+
+.card-title{
+  text-align:center;
+
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    font-weight: bolder ;
+}
+
+.card-body{
+  max-width: 2000px;
+}
+
+
+

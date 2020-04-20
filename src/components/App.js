@@ -10,6 +10,11 @@ import Login from './Login'
 import NewQuestion from './NewQuestion';
 import NotFoundPage from './NotFoundPage';
 
+
+
+
+
+
 class App extends Component {
   componentDidMount(){
     this.props.handleInitialData()

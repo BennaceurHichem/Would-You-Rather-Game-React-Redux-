@@ -8,9 +8,9 @@ import reducer from './reducers'
 import middleware from './middleware'
 
 
-
+import './utils/custom-btsp.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import 'bootstrap/dist/css/bootstrap.css'
 
 
 const store = createStore(reducer, middleware)

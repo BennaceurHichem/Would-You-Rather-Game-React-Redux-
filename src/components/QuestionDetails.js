@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import User from './User';
 import { handleAnswer } from '../actions/shared';
 import PropTypes from 'prop-types';
+import { ListGroup, ListGroupItem, Badge } from 'reactstrap';
 
 class QuestionDetails extends PureComponent {
   state = {
@@ -37,12 +38,12 @@ class QuestionDetails extends PureComponent {
               {answer ?
                 <div>
                   <FormGroup>
-                    <FormGroup check disabled>
+                    <ListGroup check disabled>
                       <Label check>
-                        <Input type="radio" checked={answer==="optionOne"} readOnly/>{' '}
+                        <Input  type="radio" checked={answer==="optionOne"} readOnly/>{' '}
                         {question.optionOne.text}
                       </Label>
-                    </FormGroup>
+                    </ListGroup>
                     <FormGroup check disabled>
                       <Label check>
                         <Input type="radio" checked={answer==="optionTwo"} readOnly/>{' '}
@@ -73,7 +74,7 @@ class QuestionDetails extends PureComponent {
                       </Label>
                     </FormGroup>
                   </FormGroup>
-                  <Button disabled={selectedOption === ''}>Submit</Button>
+                  <Button color="success" disabled={selectedOption === ''}>Submit</Button>
                 </Form>
               }
             </CardBody>
@@ -84,15 +85,9 @@ class QuestionDetails extends PureComponent {
   }
 }
 
-QuestionDetails.propTypes = {
-  question: PropTypes.object,
-  questionAuthor: PropTypes.object,
-  answer: PropTypes.string,
-  percOne: PropTypes.string.isRequired,
-  percTwo: PropTypes.string.isRequired
-};
 
-function financial(x) {
+
+function calculePercentage(x) {
   return Number.parseFloat(x).toFixed(2);
 }
 
@@ -106,8 +101,8 @@ function mapStateToProps ({ questions, users, authedUser }, { match }) {
   }
   const questionAuthor = users[question.author];
   total = question.optionOne.votes.length + question.optionTwo.votes.length;
-  percOne = financial((question.optionOne.votes.length / total) * 100);
-  percTwo = financial((question.optionTwo.votes.length / total) * 100);
+  percOne = calculePercentage((question.optionOne.votes.length / total) * 100);
+  percTwo = calculePercentage((question.optionTwo.votes.length / total) * 100);
   return {
     question,
     questionAuthor,

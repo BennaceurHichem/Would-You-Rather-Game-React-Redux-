@@ -22,7 +22,7 @@ class NavBar extends Component {
     return (
       <div>
         <Navbar bg="primary" variant="dark" light expand="md">
-          <NavbarBrand tag={Link} to="/">Would You Rather</NavbarBrand>
+          <NavbarBrand tag={Link} to="/" style={{fontStyle:"bold"}}>Welcome to my Would You Rather App<span role="img" aria-label="sheep">👋</span> </NavbarBrand>
           {authedUser &&
           <Fragment>
             <NavbarToggler onClick={this.toggle}/>

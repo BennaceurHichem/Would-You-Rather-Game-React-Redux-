@@ -1,8 +1,9 @@
+import avatar1 from './avatars/avatar1.png'
 let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: "avatars/avatar1",
+    avatarURL: "avatar1",
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
