@@ -43,5 +43,11 @@ const mapStateToProps = ({ users }) => {
   }
 };
 
+
+
+
+Leaderboard.propTypes = {
+  users: PropTypes.array.isRequired
+};
 export default connect(mapStateToProps)(Leaderboard)
 

@@ -95,4 +95,9 @@ function mapDispatchToProps(dispatch) {
   }
 
 
+  NewQuestion.propTypes = {
+    authedUser: PropTypes.string,
+    addQuestion: PropTypes.func.isRequired,
+  };
+
 export default connect(null, mapDispatchToProps)(NewQuestion)

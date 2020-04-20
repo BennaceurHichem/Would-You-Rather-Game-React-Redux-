@@ -10,7 +10,7 @@ import Login from './Login'
 import NewQuestion from './NewQuestion';
 import NotFoundPage from './NotFoundPage';
 import LoadingBar from 'react-redux-loading-bar'
-
+import PropTypes from 'prop-types'
 
 
 
@@ -56,6 +56,9 @@ function mapDispatchToProps(dispatch) {
     }
   }
 }
-
+App.propTypes = {
+  handleInitialData : PropTypes.func.isRequired,
+  notLoggedIn: PropTypes.bool.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

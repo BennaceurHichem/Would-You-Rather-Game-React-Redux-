@@ -79,4 +79,10 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
+
+Login.propTypes = {
+    users: PropTypes.object.isRequired,
+    authenticate: PropTypes.func.isRequired
+  };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

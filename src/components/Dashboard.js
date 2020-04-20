@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import Question from './Question';
-
+import PropTypes from 'prop-types';
 
 //home is a container of all the Poll list(answred and unanswered)
 class Dashboard extends Component {
@@ -88,5 +88,11 @@ function mapStateToProps ({ questions, users, authedUser }) {
       answeredQuestions
     }
   }
+
+
+  DashBoard.propTypes = {
+    answeredPolls : PropTypes.array,
+    unansweredPolls : PropTypes.array
+  };
   
   export default connect(mapStateToProps)(Dashboard)

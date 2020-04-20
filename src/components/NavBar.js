@@ -1,6 +1,6 @@
 import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from "reactstrap";
 import { Link , withRouter} from "react-router-dom";
-
+import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import React, { Component, Fragment } from "react";
 import User from "./User";
@@ -57,5 +57,7 @@ function mapStateToProps ({ authedUser }) {
     authedUser
   }
 }
-
+NavBar.propTypes = {
+    authedUser: PropTypes.string,
+  };
 export default withRouter(connect(mapStateToProps, null)(NavBar))
