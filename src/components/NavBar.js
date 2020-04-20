@@ -22,21 +22,21 @@ class NavBar extends Component {
     return (
       <div>
         <Navbar bg="primary" variant="dark" light expand="md">
-          <NavbarBrand tag={Link} to="/" style={{fontStyle:"bold"}}>Welcome to my Would You Rather App<span role="img" aria-label="sheep">👋</span> </NavbarBrand>
+          <NavbarBrand tag={Link} to="/" style={{fontStyle:"bold"}}>Welcome  
+         {authedUser && <User id={authedUser}/>} 
+ <span role="img" aria-label="sheep">👋</span> </NavbarBrand>
           {authedUser &&
           <Fragment>
             <NavbarToggler onClick={this.toggle}/>
             <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" navbar>
+              <Nav className="ml-auto"  navbar>
                 <NavItem>
                   <NavLink tag={Link} to="/add">New Question</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink tag={Link} to="/leaderboard">LeaderBoard</NavLink>
                 </NavItem>
-                <NavItem>
-                  <User id={authedUser}/>
-                </NavItem>
+               
                 <NavItem>
                   <NavLink tag={Link} to='/logout'>Logout</NavLink>
                 </NavItem>

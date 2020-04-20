@@ -90,5 +90,8 @@ div.card {
   max-width: 2000px;
 }
 
-
+.nav-link{
+  margin-left: 20px;
+  margin-right:20px
+}
 
