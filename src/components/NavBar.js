@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import React, { Component, Fragment } from "react";
 import User from "./User";
 
+
 class NavBar extends Component {
   state = {
     isOpen: false

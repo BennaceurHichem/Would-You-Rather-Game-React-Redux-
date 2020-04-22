@@ -8,7 +8,10 @@ class Logout extends Component {
     this.props.dispatch(unsetAuthedUser())
   }
   render () {
-    return <Redirect to='/' />
+    return <Redirect  to={{
+      pathname: '/',
+      state: { from: this.props.location }
+  }} />
   }
 }
 

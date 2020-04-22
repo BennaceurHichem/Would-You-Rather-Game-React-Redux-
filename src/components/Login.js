@@ -3,14 +3,21 @@ import { Form, FormGroup, Label, Input, Row, Col,Button } from 'reactstrap';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { setAuthedUser } from '../actions/authedUser'
-
+//React Router Redirect Component
+import { Redirect,withRouter } from 'react-router-dom'
 class Login extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {userId : ''};
+    this.state = {userId : '',isLogged:false};
     this.handleChangeUser = this.handleChangeUser.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.goBack = this.goBack.bind(this); // i think you are missing this
   }
+  goBack(){
+    this.props.history.goBack();
+}
+
+
 
   handleChangeUser(event) {
     this.setState({userId: event.target.value});
@@ -19,8 +26,15 @@ class Login extends PureComponent {
   handleSubmit(event) {
     const { userId } = this.state;
     const { authenticate } = this.props;
+    const {from} = this.props.location.state || {from: {pathname: '/'}}
+
     if (userId) {
-      authenticate(userId);
+   authenticate(userId);
+
+   this.setState({isLogged:true})
+   
+   console.log("this is the from : "+Object.keys(from))
+   this.props.history.goBack();
     } else {
       alert('Please select a user before.');
     }
@@ -30,7 +44,20 @@ class Login extends PureComponent {
   render() {
     const { users } = this.props;
     const { userId } = this.state;
+    /*
+    console.log("tthis.props.location.state "+this.props.location.state.from)
+    console.log("tthis.props.location.state.pathname"+this.props.location.state.pathname)
+    console.log("tthis.props.location.state.from.state:  "+this.props.location.state.from.state) 
+    */
+
+    const { history } = this.props;
+
+
+        
+   
     return (
+
+      
       <Row>
         <Col sm="12" md={{ size: 6, offset: 3 }}>
           <Form onSubmit={this.handleSubmit}>
@@ -61,13 +88,20 @@ class Login extends PureComponent {
       </Row>
     );
   }
+
+
+  componentWillReceiveProps(nextProps) {
+    var routeChanged = nextProps.location !== this.props.location
+    this.setState({ showBackButton: routeChanged })
+  }
 }
 
 
 
-function mapStateToProps ({ users }) {
+function mapStateToProps ({ users,authedUser }) {
   return {
-    users
+    users,
+    authedUser
   }
 }
 
@@ -85,4 +119,4 @@ Login.propTypes = {
     authenticate: PropTypes.func.isRequired
   };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))

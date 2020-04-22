@@ -11,7 +11,7 @@ import NewQuestion from './NewQuestion';
 import NotFoundPage from './NotFoundPage';
 import LoadingBar from 'react-redux-loading-bar'
 import PropTypes from 'prop-types'
-
+import history from './history'
 
 
 
@@ -23,7 +23,7 @@ class App extends Component {
     const { notLoggedIn } = this.props;
 
     return (
-      <Router>
+      <Router history={history}>
       <>
       <header>
         <LoadingBar />
@@ -33,7 +33,7 @@ class App extends Component {
       </section>
         <div className="main-container">
        
-          <NavBar/>
+          <NavBar location={this.props.location}/>
           <Routes notLoggedIn={notLoggedIn}/>
         </div>
       </>
