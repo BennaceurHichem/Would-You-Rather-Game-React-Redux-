@@ -1,3 +1,10 @@
+
+/*
+
+AUTHOR: Bennaceur Hichem 
+
+*/
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
@@ -12,6 +19,7 @@ import './utils/custom-btsp.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import { loadingBarMiddleware } from 'react-redux-loading-bar'
+import * as serviceWorker from './serviceWorker';
 
 const store = createStore(reducer, middleware)
 
@@ -21,3 +29,6 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root')
 )
+
+
+serviceWorker.register();
