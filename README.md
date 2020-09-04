@@ -15,4 +15,8 @@ A new browser window should automatically open displaying the app. If it doesn't
   <li> simple and fast navigation between pages  </li>
    <li> Based on react and redux to manage state  </li>
    <li>I made the app pwa and it's optimized with a score of 97% from lighthouse extension for pwa and best practices testing  </li>
+ <li>Deployment done in Firebase hosting </li>
 </ul>
+
+
+# Link : https://first-pwa-react-app.firebaseapp.com/
